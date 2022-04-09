@@ -1,0 +1,18 @@
+# ESP32
+esptool.py --chip auto --port /dev/ttyUSB0 erase_flash
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 esp32-20220117-v1.18.bin
+
+# ESP32S3
+esptool.py --chip esp32s3 --port /dev/ttyACM0 erase_flash
+esptool.py --chip esp32s3 --port /dev/ttyACM0 write_flash -z 0 GENERIC_S3_SPIRAM-20220117-v1.18.bin
+
+# USE THE ESP32S3
+rshell -p /dev/ttyACM0
+repl
+
+# MORE ESPTOOLS COMMANDS
+esptool.py --chip auto --port /dev/ttyACM0 chip_id
+esptool.py --chip auto --port /dev/ttyACM0 flash_id
+
+# IF NEEDED CHANGE PORT RIGHTS
+sudo chmod 666 ttyACM0
